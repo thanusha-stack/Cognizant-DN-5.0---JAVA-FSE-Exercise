@@ -1,8 +1,5 @@
 package com.example.test;
 
-/**
- * Hello world!
- */
-public interface ExternalApi{
+public interface ExternalApi {
     String getData();
 }

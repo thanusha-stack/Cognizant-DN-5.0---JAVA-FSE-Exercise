@@ -1,13 +1,14 @@
 package com.example.test;
 
-public class MyService{
+public class MyService {
+
     private ExternalApi api;
 
-    public MyService(External api){
-        this.api=api;
+    public MyService(ExternalApi api) {
+        this.api = api;
     }
 
-    public void fetchData(){
-        api.getData(); //no return value , interaction verifying
+    public void fetchData() {
+        api.getData();
     }
 }
