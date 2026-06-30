@@ -1,6 +1,5 @@
 package com.library;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.library.repository.BookRepository;
@@ -10,16 +9,17 @@ public class App {
 
     public static void main(String[] args) {
 
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+        try (ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
-        BookService service =
-                (BookService) context.getBean("bookService");
+            BookService service =
+                    context.getBean("bookService", BookService.class);
 
-        BookRepository repository =
-                (BookRepository) context.getBean("bookRepository");
+            BookRepository repository =
+                    context.getBean("bookRepository", BookRepository.class);
 
-        service.displayService();
-        repository.displayRepository();
+            service.displayService();
+            repository.displayRepository();
+        }
     }
 }
